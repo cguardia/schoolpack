@@ -1,0 +1,14 @@
+*.egg
+*.egg-info
+*.pyc
+*~
+.coverage
+.tox/
+nosetests.xml
+build/
+dist/
+bin/
+lib/
+include/
+env*/
+Data.fs*
