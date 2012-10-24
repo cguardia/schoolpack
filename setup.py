@@ -12,12 +12,14 @@ requires = [
     'waitress',
     'substanced',
     'pyramid_tm',
+    'pyramid_redis_sessions',
+    'babel',
     ]
 
 setup(name='schoolpack',
       version='0.0',
       description='schoolpack',
-      long_description=README + '\n\n' +  CHANGES,
+      long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Programming Language :: Python",
         "Framework :: Pylons",
@@ -34,9 +36,10 @@ setup(name='schoolpack',
       install_requires=requires,
       tests_require=requires,
       test_suite="schoolpack",
-      entry_points = """\
+      entry_points="""\
       [paste.app_factory]
       main = schoolpack:main
+      [console_scripts]
+      populate = schoolpack.populate.populate:main
       """,
       )
-

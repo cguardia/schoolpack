@@ -1,3 +1,4 @@
+from pyramid_redis_sessions import session_factory_from_settings
 from pyramid.config import Configurator
 from pkg_resources import resource_filename
 from substanced import root_factory
@@ -8,6 +9,8 @@ def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
     config = Configurator(settings=settings, root_factory=root_factory)
+    session_factory = session_factory_from_settings(settings)
+    config.set_session_factory(session_factory)
     config.include('substanced')
     config.include('schoolpack.site')
     config.add_catalog_index('title', 'field', 'schoolpack')
